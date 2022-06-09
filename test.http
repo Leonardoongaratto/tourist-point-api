@@ -4,19 +4,22 @@
 ###
 # @name allAttractions
 
-GET {{baseURL}}/attractions/
+GET {{baseURL}}/address/
 
 ###
 # @name CreateAttractions
 
-POST {{baseURL}}/attractions/
+POST {{baseURL}}/address/
 Content-Type: application/json
 
 {
-    "name": "Bebedouro",
-    "description": "Agua Quente",
-    "time_func": "Seg-sexta",
-    "minimum_age": 20
+    "linha1": "Ponte",
+    "linha2": "Golden Gate",
+    "cidade": "São francisco",
+    "estado": "California",
+    "pais": "EUA",
+    "latitude": 2222,
+    "longitude": 2222
 }
 
 ###
