@@ -6,7 +6,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('assessments', '0002_avaliacao_delete_avalicoes'),
+        ('evaluation', '0002_avaliacao_delete_avalicoes'),
         ('core', '0004_pontoturistico_comment'),
     ]
 
@@ -14,6 +14,6 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='pontoturistico',
             name='assesment',
-            field=models.ManyToManyField(to='assessments.avaliacao'),
+            field=models.ManyToManyField(to='evaluation.avaliacao'),
         ),
     ]
