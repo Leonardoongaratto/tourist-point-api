@@ -1,0 +1,33 @@
+@baseURL = http://127.0.0.1:9000
+
+
+###
+# @name allAttractions
+
+GET {{baseURL}}/attractions/
+
+###
+# @name CreateAttractions
+
+POST {{baseURL}}/attractions/
+Content-Type: application/json
+
+{
+    "name": "Bebedouro",
+    "description": "Agua Quente",
+    "time_func": "Seg-sexta",
+    "minimum_age": 20
+}
+
+###
+# @name UpdateAttractions
+
+PUT  {{baseURL}}/attractions/2/
+Content-Type: application/json
+
+{
+    "name": "Bebedouro 2",
+    "description": "Agua Quente",
+    "time_func": "Seg-sexta",
+    "minimum_age": 19
+}
