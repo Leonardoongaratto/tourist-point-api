@@ -6,4 +6,4 @@ from evaluation.models import Avaliacao
 class AvaliacaoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Avaliacao
-        fields = ['user', 'comment', 'note', 'date']
+        fields = ['id','user', 'comment', 'note', 'date']
