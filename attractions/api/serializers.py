@@ -1,4 +1,4 @@
-from core.models import Atracao
+from attractions.models import Atracao
 from rest_framework import serializers
 
 

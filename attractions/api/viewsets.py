@@ -1,5 +1,5 @@
 from rest_framework import viewsets
-from core.models import Atracao
+from attractions.models import Atracao
 from .serializers import AtracaoSerializer
 
 
