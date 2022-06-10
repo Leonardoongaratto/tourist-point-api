@@ -4,11 +4,26 @@ from core.models import PontoTuristico
 from .serializers import PontoTuristicoSerializer
 
 class PontoTuristicoViewSet(viewsets.ModelViewSet):
+    
     serializer_class = PontoTuristicoSerializer
     
     
     def get_queryset(self):
-        return PontoTuristico.objects.filter(approved=True)
+        id = self.request.query_params.get('id', None)
+        name = self.request.query_params.get('name', None)
+        description = self.request.query_params.get('description', None)
+        queryset = PontoTuristico.objects.all()
+        
+        if id:
+            queryset = PontoTuristico.objects.filter(pk=id)
+         
+        if name:
+            queryset = queryset.filter(name__iexact=name)
+            
+        if description:
+            queryset = queryset.filter(description__iexact=description)
+             
+        return queryset
     
     def list(self, request, *args, **kwargs):
         return super(PontoTuristicoViewSet, self).list(request, *args, **kwargs)
