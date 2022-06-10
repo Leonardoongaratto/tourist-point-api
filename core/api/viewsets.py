@@ -1,11 +1,14 @@
-from rest_framework import viewsets
 from rest_framework.decorators import action
+from rest_framework.filters import SearchFilter
+from rest_framework import viewsets
 from core.models import PontoTuristico
 from .serializers import PontoTuristicoSerializer
 
 class PontoTuristicoViewSet(viewsets.ModelViewSet):
     
     serializer_class = PontoTuristicoSerializer
+    filter_backends = [SearchFilter]
+    search_fields = ['name', 'description', 'address__linha1']
     
     
     def get_queryset(self):
