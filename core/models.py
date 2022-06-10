@@ -1,3 +1,4 @@
+from distutils.command.upload import upload
 from django.db import models
 from attractions.models import Atracao
 from comments.models import Comentario
@@ -12,8 +13,8 @@ class PontoTuristico(models.Model):
     attraction = models.ManyToManyField(Atracao)
     comment = models.ManyToManyField(Comentario)
     evaluation = models.ManyToManyField(Avaliacao)
-    address = models.ForeignKey(Endereco, on_delete=models.CASCADE)
-
+    address = models.ForeignKey(Endereco, on_delete=models.CASCADE, null=True, blank=True)
+    picture = models.ImageField(upload_to='pontos_turisticos', null=True, blank=True)
 
     def __str__(self):
         return self.name

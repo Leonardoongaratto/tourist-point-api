@@ -6,6 +6,8 @@ class Atracao(models.Model):
     description = models.TextField()
     time_func = models.TextField()
     minimum_age = models.IntegerField()
+    picture = models.ImageField(upload_to='atracoes', null=True, blank=True)
+    
 
     def __str__(self):
         return self.name
