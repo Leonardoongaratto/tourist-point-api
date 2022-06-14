@@ -34,3 +34,14 @@ Content-Type: application/json
     "time_func": "Seg-sexta",
     "minimum_age": 19
 }
+
+###
+# @name Token
+
+POST {{baseURL}}/api-token-auth/
+Content-Type: application/json
+
+{
+    "username": "Api",
+    "password": "Leonardo10!"
+}
