@@ -45,3 +45,14 @@ Content-Type: application/json
     "username": "Api",
     "password": "Leonardo10!"
 }
+
+
+###
+# @name Token
+
+GET {{baseURL}}/points/
+Content-Type: application/json
+
+{
+    "Authorization": "Token f65bfb778f68fc99c4b5600ceb16f2ddac4a6481"
+}

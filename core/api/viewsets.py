@@ -1,5 +1,6 @@
 from rest_framework.decorators import action
 from rest_framework.filters import SearchFilter
+from rest_framework import permissions, authentication
 from rest_framework import viewsets
 from core.models import PontoTuristico
 from .serializers import PontoTuristicoSerializer
@@ -8,6 +9,8 @@ class PontoTuristicoViewSet(viewsets.ModelViewSet):
     
     serializer_class = PontoTuristicoSerializer
     filter_backends = [SearchFilter]
+    permission_classes = [permissions.IsAuthenticated]
+    authentication_classes = [authentication.TokenAuthentication, authentication.SessionAuthentication]
     search_fields = ['name', 'description', 'address__linha1']
     lookup_field = 'name'
     
