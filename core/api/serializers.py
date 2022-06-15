@@ -1,4 +1,5 @@
 from core.models import PontoTuristico
+from rest_framework.fields import SerializerMethodField
 from rest_framework import serializers
 from attractions.api.serializers import AtracaoSerializer
 from comments.api.serializers import ComentarioSerializer
@@ -11,10 +12,16 @@ class PontoTuristicoSerializer(serializers.HyperlinkedModelSerializer):
     comment = ComentarioSerializer(many=True, read_only=True)
     evaluation = AvaliacaoSerializer(many=True, read_only=True)
     address = EnderecoSerializer()
+    descricao_completa = SerializerMethodField()
     
     class Meta:
         model = PontoTuristico
         fields = [
             'id', 'name', 'description', 'picture',
-            'attraction','comment', 'evaluation', 'address'
+            'attraction','comment', 'evaluation', 'address',
+            'descricao_completa'
         ]
+        
+        
+    def get_descricao_completa(self, obj):
+        return '%s - %s' % (obj.name, obj.description)
